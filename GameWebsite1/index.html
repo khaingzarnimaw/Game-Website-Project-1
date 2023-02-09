@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1">
+        <title>PIPI</title>
+        <link rel="stylesheet"media="all"href="style/style.css">
+        <script src ="index.js" defer></script>
+    </head>
+    
+    <body>
+    <div class="scroll-tracker"></div>
+
+      <nav id="mainnav">
+        <p id="menuWrap"><a id="menu"><span id="menuBtn"></span></a></p>   
+         <div class="panel">           
+          <ul>
+              <li><a href="#header">Home</a></li>
+              <li><a href="#sec01">About</a></li>
+              <li><a href="#sec02">Video</a></li>
+              <li><a href="#sec03">Explain</a></li>
+              <li><a href="#sec04">Study</a></li>
+              
+              
+         </ul>
+        </div>
+     </nav>
+                 
+     <header id="header">
+        
+        <html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | MORI NO BOUKEN</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-mobile-warning">
+        WebGL builds are not supported on mobile devices.
+      </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">MORI NO BOUKEN</div>
+      </div>
+    </div>
+    <script>
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/GameBuild.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/GameBuild.data.gz",
+        frameworkUrl: buildUrl + "/GameBuild.framework.js.gz",
+        codeUrl: buildUrl + "/GameBuild.wasm.gz",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "ZEMIGAME",
+        productName: "MORI NO BOUKEN",
+        productVersion: "1.0",
+      };
+
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var mobileWarning = document.querySelector("#unity-mobile-warning");
+
+      // By default Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        container.className = "unity-mobile";
+        // Avoid draining fillrate performance on mobile devices,
+        // and default/override low DPI mode on mobile browsers.
+        config.devicePixelRatio = 1;
+        mobileWarning.style.display = "block";
+        setTimeout(() => {
+          mobileWarning.style.display = "none";
+        }, 5000);
+      } else {
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>
+        <div id="slogan">
+            
+        </div>
+    </header>
+                
+     
+
+             
+             
+
+<!-- About -->
+<section id="sec01" class="fade-in">
+	<header>
+		<h2>About</h2>
+	</header>
+	<div class="vision">
+		<dl>
+          <dt>タイトル</dt>
+          <dd>森の冒険</dd>
+          
+          <dt>ゲーム種類</dt>
+          <dd>アドベンチャーゲーム</dd>
+          
+          <dt>ゲーム種類</dt>
+          <dd>アクションゲーム</dd>
+          
+          <dt>ターゲット</dt>
+          <dd>
+            <ul class="dt_list">
+              <li>22〜40歳男性</li>
+              <li>スピード　ランナー</li>
+            </ul>
+          </dd>
+          
+          
+        </dl>
+	</div>
+</section>
+
+
+<!-- video -->
+<section id="sec02" class="fade-in">
+	<header>
+		
+	</header>
+	<div> 
+    <video controls>
+     <source src="image/ppviedo.mp4">
+     </video>
+  </div>
+	</div>
+</section>
+<!-- // video -->
+
+<!-- Explain-->
+<section id="sec03" class="fade-in">
+	<div class="wrap">
+		<p class="bg"><img src="image/g2.jpeg" alt="" style="max-width:70%"> </p>
+		<div class="txt">
+			<div class="vMid">
+				
+				<h>エターナルナイト異世界</h>
+			</div>
+		</div>
+	</div>
+	<div id="sec02_02" class="wrap">
+		<p class="bg"><img src="image/g3.png"  alt="" style="max-width:70%"> </p>
+		<div class="txt">
+			<div class="vMid">
+				<h2>ストーリー</h2>
+				<p>ある日深い森の中</p>
+
+				
+			</div>
+		</div>
+	</div>
+</section>
+<!-- // Explain -->
+
+
+
+
+<section id="sec04" class="fade-in">
+  
+	<div class="wrap">
+		<p class="bg">
+      <div class="image1">
+        <div class="animated"></div>
+      </div>
+    </p>
+    <div class="Txt1">
+      <div class="animatedTxt">
+		<div class="txt">
+			<div class="vMid">
+				<h2>学んだ事</h2>
+				<dt>Unity</dt>
+          <dd>
+            <ul class="dt_list">
+              <li>C#,骨,TWEEK</li>
+              <li>SHADDER,LIGHT</li>
+            </ul>
+          </dd>
+          <dt>WEB</dt>
+          <dd>
+            <ul class="dt_list">
+              <li>Javascript,CSS</li>
+              <li>HTML</li>
+            </ul>
+          </dd>
+
+			</div>
+		</div>
+  </div>
+  </div>
+	</div>
+  
+	
+
+  
+</section>
+<div class="image2">
+  <div class="animated"></div>
+  <div class="animated"></div>
+  <div class="animated"></div>
+ </div>
+ <script src="js/javascript.js"></script>
+
+
+ 
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+
+
+
+
+
+
+
+            <footer>
+                <p>Vincent & Maw</p>
+            </footer>
+        
+        </div>
+      
+    </body>
+</html>
